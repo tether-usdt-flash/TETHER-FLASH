@@ -1,0 +1,392 @@
+/* ===================================
+   HERO SECTION - ULTIMATE RESPONSIVE
+   =================================== */
+
+/* Base Hero Section */
+#main-content section:first-of-type {
+    min-height: 100vh;
+    padding: 100px 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container Adjustments */
+#main-content section:first-of-type .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Grid Layout - Responsive */
+#main-content section:first-of-type .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* ===================================
+   MOBILE FIRST (320px - 480px)
+   =================================== */
+@media (max-width: 480px) {
+    #main-content section:first-of-type {
+        min-height: auto;
+        padding: 80px 15px 40px;
+    }
+    
+    /* Badge */
+    #main-content section:first-of-type .inline-flex {
+        padding: 8px 16px !important;
+        font-size: 11px !important;
+        gap: 8px !important;
+    }
+    
+    /* Title */
+    #main-content section:first-of-type h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 16px !important;
+        letter-spacing: -1px !important;
+    }
+    
+    /* Subtitle */
+    #main-content section:first-of-type h1 + p {
+        font-size: 1rem !important;
+        margin-bottom: 12px !important;
+    }
+    
+    /* Description */
+    #main-content section:first-of-type h1 + p + p {
+        font-size: 0.875rem !important;
+        margin-bottom: 24px !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* CTA Buttons */
+    #main-content section:first-of-type .flex.flex-col {
+        gap: 12px !important;
+    }
+    
+    #main-content section:first-of-type .flex.flex-col a {
+        padding: 14px 24px !important;
+        font-size: 0.875rem !important;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Stats Grid */
+    #main-content section:first-of-type .grid.grid-cols-3 {
+        gap: 12px !important;
+        margin-top: 24px !important;
+    }
+    
+    #main-content section:first-of-type .grid.grid-cols-3 > div > div:first-child {
+        font-size: 1.5rem !important;
+    }
+    
+    #main-content section:first-of-type .grid.grid-cols-3 > div > div:last-child {
+        font-size: 0.625rem !important;
+    }
+    
+    /* iPhone Container */
+    #main-content section:first-of-type .relative > div[style*="width"] {
+        width: min(300px, 85vw) !important;
+        height: min(615px, calc(85vw * 2.05)) !important;
+    }
+    
+    /* Floating Coins - Hide on very small screens */
+    #main-content section:first-of-type img[style*="orbit"] {
+        display: none !important;
+    }
+}
+
+/* ===================================
+   SMALL MOBILE (481px - 640px)
+   =================================== */
+@media (min-width: 481px) and (max-width: 640px) {
+    #main-content section:first-of-type {
+        padding: 90px 20px 50px;
+    }
+    
+    #main-content section:first-of-type h1 {
+        font-size: 3rem !important;
+        margin-bottom: 20px !important;
+    }
+    
+    #main-content section:first-of-type h1 + p {
+        font-size: 1.125rem !important;
+    }
+    
+    #main-content section:first-of-type h1 + p + p {
+        font-size: 0.9375rem !important;
+    }
+    
+    #main-content section:first-of-type .flex.flex-col a {
+        padding: 16px 32px !important;
+        font-size: 0.9375rem !important;
+    }
+    
+    #main-content section:first-of-type .relative > div[style*="width"] {
+        width: min(330px, 90vw) !important;
+        height: min(676px, calc(90vw * 2.05)) !important;
+    }
+}
+
+/* ===================================
+   TABLET PORTRAIT (641px - 768px)
+   =================================== */
+@media (min-width: 641px) and (max-width: 768px) {
+    #main-content section:first-of-type {
+        padding: 100px 30px 60px;
+    }
+    
+    #main-content section:first-of-type h1 {
+        font-size: 3.5rem !important;
+    }
+    
+    #main-content section:first-of-type .flex.flex-col {
+        flex-direction: row !important;
+        justify-content: center !important;
+    }
+    
+    #main-content section:first-of-type .flex.flex-col a {
+        width: auto !important;
+    }
+    
+    #main-content section:first-of-type .relative > div[style*="width"] {
+        width: min(350px, 85vw) !important;
+        height: min(717px, calc(85vw * 2.05)) !important;
+    }
+}
+
+/* ===================================
+   TABLET LANDSCAPE (769px - 1024px)
+   =================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #main-content section:first-of-type .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    
+    #main-content section:first-of-type h1 {
+        font-size: 3.75rem !important;
+    }
+    
+    #main-content section:first-of-type .text-center {
+        text-align: left !important;
+    }
+    
+    #main-content section:first-of-type .justify-center {
+        justify-content: flex-start !important;
+    }
+    
+    #main-content section:first-of-type .mx-auto {
+        margin-left: 0 !important;
+    }
+    
+    #main-content section:first-of-type .relative > div[style*="width"] {
+        width: min(340px, 90%) !important;
+        height: min(697px, calc(90% * 2.05)) !important;
+    }
+}
+
+/* ===================================
+   LAPTOP (1025px - 1280px)
+   =================================== */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    #main-content section:first-of-type .grid {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 60px;
+    }
+    
+    #main-content section:first-of-type h1 {
+        font-size: 4.5rem !important;
+    }
+    
+    #main-content section:first-of-type .relative > div[style*="width"] {
+        width: 360px !important;
+        height: 738px !important;
+    }
+}
+
+/* ===================================
+   DESKTOP (1281px - 1536px)
+   =================================== */
+@media (min-width: 1281px) and (max-width: 1536px) {
+    #main-content section:first-of-type .grid {
+        grid-template-columns: 1.3fr 1fr;
+        gap: 80px;
+    }
+    
+    #main-content section:first-of-type h1 {
+        font-size: 5rem !important;
+    }
+    
+    #main-content section:first-of-type .relative > div[style*="width"] {
+        width: 370px !important;
+        height: 758px !important;
+    }
+}
+
+/* ===================================
+   LARGE DESKTOP (1537px+)
+   =================================== */
+@media (min-width: 1537px) {
+    #main-content section:first-of-type .grid {
+        grid-template-columns: 1.4fr 1fr;
+        gap: 100px;
+    }
+    
+    #main-content section:first-of-type h1 {
+        font-size: 6rem !important;
+    }
+    
+    #main-content section:first-of-type .relative > div[style*="width"] {
+        width: 400px !important;
+        height: 820px !important;
+    }
+}
+
+/* ===================================
+   ULTRA WIDE (1920px+)
+   =================================== */
+@media (min-width: 1920px) {
+    #main-content section:first-of-type .container {
+        max-width: 1600px;
+    }
+    
+    #main-content section:first-of-type h1 {
+        font-size: 7rem !important;
+    }
+}
+
+/* ===================================
+   LANDSCAPE ORIENTATION
+   =================================== */
+@media (max-height: 600px) and (orientation: landscape) {
+    #main-content section:first-of-type {
+        min-height: auto;
+        padding: 80px 20px 40px;
+    }
+    
+    #main-content section:first-of-type .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    
+    #main-content section:first-of-type h1 {
+        font-size: 2.5rem !important;
+        margin-bottom: 12px !important;
+    }
+    
+    #main-content section:first-of-type h1 + p {
+        font-size: 1rem !important;
+        margin-bottom: 8px !important;
+    }
+    
+    #main-content section:first-of-type h1 + p + p {
+        font-size: 0.875rem !important;
+        margin-bottom: 16px !important;
+    }
+    
+    #main-content section:first-of-type .relative > div[style*="width"] {
+        width: 280px !important;
+        height: 574px !important;
+    }
+}
+
+/* ===================================
+   IPHONE SPECIFIC OPTIMIZATIONS
+   =================================== */
+
+/* iPhone SE (375px) */
+@media (max-width: 375px) {
+    #main-content section:first-of-type h1 {
+        font-size: 2.25rem !important;
+    }
+    
+    #main-content section:first-of-type .relative > div[style*="width"] {
+        width: min(280px, 80vw) !important;
+        height: min(574px, calc(80vw * 2.05)) !important;
+    }
+}
+
+/* iPhone 12/13/14 (390px) */
+@media (min-width: 376px) and (max-width: 390px) {
+    #main-content section:first-of-type .relative > div[style*="width"] {
+        width: min(310px, 85vw) !important;
+        height: min(635px, calc(85vw * 2.05)) !important;
+    }
+}
+
+/* iPhone 14 Pro Max (430px) */
+@media (min-width: 391px) and (max-width: 430px) {
+    #main-content section:first-of-type .relative > div[style*="width"] {
+        width: min(340px, 85vw) !important;
+        height: min(697px, calc(85vw * 2.05)) !important;
+    }
+}
+
+/* ===================================
+   PERFORMANCE OPTIMIZATIONS
+   =================================== */
+
+/* Reduce animations on smaller screens */
+@media (max-width: 768px) {
+    #main-content section:first-of-type [style*="animation"] {
+        animation-duration: 0.5s !important;
+    }
+    
+    #main-content section:first-of-type .animate-pulse {
+        animation: none !important;
+    }
+}
+
+/* Optimize background effects */
+@media (max-width: 1024px) {
+    #main-content section:first-of-type .absolute.inset-0 > div {
+        opacity: 0.3 !important;
+    }
+}
+
+/* ===================================
+   ACCESSIBILITY IMPROVEMENTS
+   =================================== */
+
+/* Ensure readable text on all screens */
+@media (max-width: 640px) {
+    #main-content section:first-of-type p {
+        line-height: 1.6 !important;
+    }
+}
+
+/* Touch target sizes for mobile */
+@media (max-width: 768px) {
+    #main-content section:first-of-type a,
+    #main-content section:first-of-type button {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+}
+
+/* ===================================
+   SMOOTH TRANSITIONS
+   =================================== */
+#main-content section:first-of-type * {
+    transition: all 0.3s ease-in-out;
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+@media print {
+    #main-content section:first-of-type {
+        min-height: auto !important;
+        padding: 20px !important;
+    }
+    
+    #main-content section:first-of-type .absolute {
+        display: none !important;
+    }
+}

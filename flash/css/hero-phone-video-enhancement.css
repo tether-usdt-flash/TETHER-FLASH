@@ -1,0 +1,195 @@
+/* ===== قسم الفيديو الاحترافي على شاشة الهاتف ===== */
+
+/* تحسينات عنصر الفيديو الرئيسي */
+#phone-content video {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+}
+
+/* تأثيرات حاوية الفيديو */
+#phone-content > div:first-child {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#phone-content > div:first-child:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(52, 211, 153, 0.4) !important;
+    border-color: rgba(52, 211, 153, 0.8) !important;
+}
+
+/* تأثير Glow للحد العلوي للفيديو */
+@keyframes video-glow {
+    0% {
+        box-shadow: 
+            inset 0 0 20px rgba(52, 211, 153, 0.1),
+            0 0 30px rgba(52, 211, 153, 0.3);
+    }
+    50% {
+        box-shadow: 
+            inset 0 0 30px rgba(52, 211, 153, 0.2),
+            0 0 50px rgba(52, 211, 153, 0.5);
+    }
+    100% {
+        box-shadow: 
+            inset 0 0 20px rgba(52, 211, 153, 0.1),
+            0 0 30px rgba(52, 211, 153, 0.3);
+    }
+}
+
+/* تطبيق Animation على حاوية الفيديو */
+#phone-content > div:first-child {
+    animation: video-glow 4s ease-in-out infinite !important;
+}
+
+/* تحسين مؤشر التشغيل */
+#phone-content .absolute.top-2.right-2 {
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(52, 211, 153, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    animation: badge-pulse 3s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 8px 32px rgba(52, 211, 153, 0.3),
+            inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 
+            0 12px 48px rgba(52, 211, 153, 0.5),
+            inset 0 1px 2px rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* تحسين الـ Gradient Overlay للفيديو */
+#phone-content .absolute.inset-0.bg-gradient-to-t {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.2) 40%,
+        transparent 100%
+    ) !important;
+}
+
+/* تحسينات التمرير للمحتوى على الهاتف */
+#phone-content {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(52, 211, 153, 0.3) transparent;
+}
+
+#phone-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+#phone-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#phone-content::-webkit-scrollbar-thumb {
+    background: rgba(52, 211, 153, 0.3);
+    border-radius: 2px;
+    transition: background 0.3s;
+}
+
+#phone-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(52, 211, 153, 0.6);
+}
+
+/* تأثيرات الحد الخارجي للفيديو */
+#phone-content > div:first-child::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+        135deg,
+        rgba(52, 211, 153, 0.4) 0%,
+        rgba(52, 211, 153, 0.1) 50%,
+        rgba(52, 211, 153, 0) 100%
+    );
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* تأثير الظل العميق للفيديو */
+#phone-content > div:first-child {
+    background: radial-gradient(
+        circle at 50% 0%,
+        rgba(52, 211, 153, 0.15) 0%,
+        transparent 70%
+    );
+}
+
+/* تحسين الأداء على الأجهزة المحمولة */
+@media (max-width: 768px) {
+    #phone-content > div:first-child {
+        margin-bottom: 1rem !important;
+        border-radius: 1.5rem !important;
+    }
+
+    #phone-content video {
+        will-change: auto;
+        transform: translateZ(0);
+    }
+
+    #phone-content .absolute.top-2.right-2 {
+        font-size: 7px;
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+/* تأثير التحميل الأولي للفيديو */
+#phone-content > div:first-child {
+    animation-timing-function: cubic-bezier(0.23, 1, 0.320, 1) !important;
+}
+
+/* تحسين جودة الفيديو على الشاشات عالية الدقة */
+@media (min-resolution: 192dpi) {
+    #phone-content video {
+        image-rendering: high-quality;
+    }
+}
+
+/* تأثيرات إضافية عند التركيز */
+#phone-content > div:first-child:focus-within {
+    outline: none;
+    box-shadow: 
+        0 0 20px rgba(52, 211, 153, 0.6),
+        0 0 40px rgba(52, 211, 153, 0.3) !important;
+}
+
+/* تحسين الانتقال السلس */
+#phone-content > div:first-child {
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* تأثير الإضاءة المحيطة */
+#phone-content > div:first-child {
+    position: relative;
+}
+
+#phone-content > div:first-child::after {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(
+        circle at center,
+        rgba(52, 211, 153, 0.1) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: -1;
+}
