@@ -1,0 +1,23 @@
+رسائل عربية واقعية:
+'مرحباً، كيف أشتري البطاقة؟'
+'هل الموقع يدعم بلدي؟'
+'كم المدة للتحويل؟'
+'شكراً استلمت التحويل'
+'هل يوجد خصم للطلبات الكبيرة؟'
+'الدعم الفني متجاوب جداً'
+'أول مرة أستخدم الموقع، ممتاز'
+'التحويل وصل بسرعة'
+'هل البطاقة الكلاسيك مناسبة للمبتدئين؟'
+'تجربة جيدة حتى الآن'
+
+رسائل إنجليزية واقعية:
+'How do I purchase a card?'
+'Does the site support my country?'
+'How long does the transfer take?'
+'Thanks, received the transfer'
+'Is there a discount for bulk orders?'
+'Support team is responsive'
+'First time using the site, good'
+'Transfer arrived quickly'
+'Is the Classic card suitable for beginners?'
+'Good experience so far'
