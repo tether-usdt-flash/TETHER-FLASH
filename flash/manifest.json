@@ -1,0 +1,29 @@
+{
+  "name": "USDT-FLASH - Official Tether Partner",
+  "short_name": "USDT-FLASH",
+  "description": "Revolutionary Web3 Financial Ecosystem - Transform digital assets into real USDT instantly",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f1419",
+  "theme_color": "#26a17b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/img/usdt_cryptocurrencies_icon_188337.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/usdt_cryptocurrencies_icon_188337.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "business", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
