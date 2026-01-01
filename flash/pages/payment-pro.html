@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>USDT-FLASH - Pro Package Payment</title>
+    <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/npm/cryptocurrency-icons@0.18.1/svg/color/trx.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/flash.css">
+    <link rel="stylesheet" href="../css/tether-branding.css">
+    <script src="../js/how-it-works-modal.js"></script>
+    <style>
+        /* Custom Styles for High-End Look */
+        :root {
+            --primary-color: #3B82F6; /* Blue 500 */
+            --secondary-color: #2563EB; /* Blue 600 */
+            --accent-color: #60A5FA; /* Blue 400 */
+            --dark-bg: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #eff6ff;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.1) 0px, transparent 50%);
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 24px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .input-field {
+            transition: all 0.3s ease;
+            border: 2px solid #e2e8f0;
+        }
+
+        .input-field:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+
+        .qr-container {
+            position: relative;
+            padding: 10px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .qr-corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-color: var(--primary-color);
+            border-style: solid;
+        }
+
+        .top-left { top: -2px; left: -2px; border-width: 4px 0 0 4px; border-radius: 4px 0 0 0; }
+        .top-right { top: -2px; right: -2px; border-width: 4px 4px 0 0; border-radius: 0 4px 0 0; }
+        .bottom-left { bottom: -2px; left: -2px; border-width: 0 0 4px 4px; border-radius: 0 0 0 4px; }
+        .bottom-right { bottom: -2px; right: -2px; border-width: 0 4px 4px 0; border-radius: 0 0 4px 0; }
+
+        /* Loading Modal */
+        .loading-modal {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(8px);
+        }
+        
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: var(--primary-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 bg-[#0f1419]/90 backdrop-blur-md border-b border-gray-800">
+        <div class="container mx-auto px-4 py-3 relative">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 group cursor-pointer" onclick="window.location.href='../index.html'">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/30 to-emerald-500/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                        <img src="../2026/de3f711b-0d22-4488-ba49-36e489bfec7e.png" alt="USDT-FLASH" class="h-10 w-10 md:h-12 md:w-12 relative z-10 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                    </div>
+                    <div>
+                        <h1 class="text-lg md:text-xl font-black text-white" translate="no">USDT-FLASH</h1>
+                        <p class="text-[10px] md:text-xs font-semibold text-white tracking-wide hidden sm:block">Official Tether Partner</p>
+                    </div>
+                </div>
+                <a href="../index.html" class="px-3 py-2 md:px-4 md:py-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors font-medium text-xs md:text-sm border border-white/10 flex items-center">
+                    <i class="fas fa-arrow-left mr-1 md:mr-2"></i> <span>Back</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Hero Section -->
+            <div class="text-center mb-12 animate-float">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4">
+                    Pro Package <span class="gradient-text">Payment</span>
+                </h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Secure your 3,000 USDT FLASH allocation instantly. Automated processing via Tether Network.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 items-start">
+                <!-- Payment Details Card -->
+                <div class="glass-card p-6 md:p-8">
+                    <div class="flex justify-between items-center mb-8 pb-6 border-b border-gray-100">
+                        <div>
+                            <p class="text-sm text-gray-500 uppercase tracking-wider font-semibold">Total Amount</p>
+                            <div class="text-4xl font-bold text-gray-900">$239.00 <span class="text-lg text-gray-400 font-normal">USDT</span></div>
+                        </div>
+                        <div class="text-right">
+                            <div class="bg-blue-50 px-4 py-2 rounded-xl">
+                                <p class="text-xs text-blue-600 font-bold">YOU RECEIVE</p>
+                                <p class="text-xl font-bold text-blue-700 flex items-center justify-end gap-1">3,000 <img src="../img/logo.png" alt="USDT" class="h-6 w-6"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QR Code & Address -->
+                    <div class="flex flex-col items-center mb-8">
+                        <div class="qr-container mb-6">
+                            <div class="qr-corner top-left"></div>
+                            <div class="qr-corner top-right"></div>
+                            <div class="qr-corner bottom-left"></div>
+                            <div class="qr-corner bottom-right"></div>
+                            <video src="../Coin/doc_2025-12-31_21-42-03.mp4" class="w-48 h-48 object-contain" autoplay loop muted playsinline></video>
+                        </div>
+                        
+                        <div class="w-full">
+                            <label class="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                                <img src="https://cdn.jsdelivr.net/npm/cryptocurrency-icons@0.18.1/svg/color/trx.svg" alt="TRON" class="w-5 h-5">
+                                Wallet Address (TRC20)
+                            </label>
+                            <div class="flex gap-2">
+                                <input type="text" value="TBKYWnWqZmEpKBaRHZk4yo4jgyK2TE3eqg" readonly 
+                                       class="w-full bg-gray-50 text-gray-600 font-mono text-sm px-4 py-3 rounded-lg border border-gray-200 focus:outline-none"
+                                       id="walletAddress">
+                                <button onclick="copyAddress()" class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition-colors">
+                                    <i class="far fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transaction Form -->
+                    <form id="paymentForm" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                                <i class="fas fa-receipt text-gray-500"></i>
+                                Transaction Hash (TXID)
+                            </label>
+                            <input type="text" id="txId" required
+                                   class="input-field w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-400"
+                                   placeholder="Paste your transaction ID here">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <button type="submit" class="btn-primary w-full text-white font-bold py-4 rounded-xl text-lg shadow-lg flex items-center justify-center gap-2" style="opacity: 0.7; transition: opacity 0.3s;">
+                                <i class="fas fa-check-circle"></i>
+                                Confirm Payment
+                            </button>
+                            <a href="account-info.html?bounce=true&return=payment-pro.html" class="w-full bg-white hover:bg-gray-50 text-gray-700 font-bold py-4 rounded-xl text-lg shadow-md flex items-center justify-center gap-2 transition-all border border-gray-100 group">
+                                <i class="fas fa-user-shield text-blue-500 group-hover:scale-110 transition-transform"></i>
+                                <span class="text-base md:text-lg">Setup Receiving Address</span>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Features & Trust -->
+                <div class="space-y-6">
+                    <!-- Features -->
+                    <div class="glass-card p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Package Features</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Instant Delivery</p>
+                                    <p class="text-sm text-gray-500">Assets credited within 2-5 minutes</p>
+                                </div>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                                    <i class="fas fa-shield-halved"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Secure Transaction</p>
+                                    <p class="text-sm text-gray-500">Protected by Tether Shield™ technology</p>
+                                </div>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Priority Support</p>
+                                    <p class="text-sm text-gray-500">24/7 dedicated assistance</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Security Badges -->
+                    <div class="glass-card p-6">
+                        <div class="flex flex-col items-center">
+                            <h4 class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-6">Secured & Guaranteed By Global Leaders</h4>
+                            <div class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-90">
+                                <!-- Norton -->
+                                <div class="flex items-center gap-3 group hover:scale-105 transition-transform duration-300">
+                                    <i class="fas fa-check-circle text-[#ebb10e] text-3xl drop-shadow-sm"></i>
+                                    <div class="flex flex-col text-left">
+                                        <span class="text-gray-800 font-bold text-base leading-none">Norton</span>
+                                        <span class="text-[10px] text-gray-500 leading-none tracking-wider mt-1">SECURED</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- McAfee -->
+                                <div class="flex items-center gap-3 group hover:scale-105 transition-transform duration-300">
+                                    <i class="fas fa-shield-alt text-[#c01818] text-3xl drop-shadow-sm"></i>
+                                    <div class="flex flex-col text-left">
+                                        <span class="text-gray-800 font-bold text-base leading-none">McAfee</span>
+                                        <span class="text-[10px] text-gray-500 leading-none tracking-wider mt-1">SECURE</span>
+                                    </div>
+                                </div>
+
+                                <!-- SSL -->
+                                <div class="flex items-center gap-3 group hover:scale-105 transition-transform duration-300">
+                                    <i class="fas fa-lock text-[#00d084] text-3xl drop-shadow-sm"></i>
+                                    <div class="flex flex-col text-left">
+                                        <span class="text-gray-800 font-bold text-base leading-none">SSL</span>
+                                        <span class="text-[10px] text-gray-500 leading-none tracking-wider mt-1">256-BIT ENCRYPTION</span>
+                                    </div>
+                                </div>
+
+                                <!-- Buyer Protection -->
+                                <div class="flex items-center gap-3 group hover:scale-105 transition-transform duration-300">
+                                    <i class="fas fa-hand-holding-usd text-[#3b82f6] text-3xl drop-shadow-sm"></i>
+                                    <div class="flex flex-col text-left">
+                                        <span class="text-gray-800 font-bold text-base leading-none">Escrow</span>
+                                        <span class="text-[10px] text-gray-500 leading-none tracking-wider mt-1">PAYMENT PROTECTION</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="loading-modal fixed inset-0 z-[100] hidden flex items-center justify-center">
+        <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 text-center shadow-2xl">
+            <div class="flex justify-center mb-6">
+                <div class="spinner"></div>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Verifying Transaction</h3>
+            <p class="text-gray-500 text-sm mb-6">Please wait while we confirm your payment on the blockchain...</p>
+            <div class="w-full bg-gray-200 rounded-full h-2 mb-2 overflow-hidden">
+                <div class="bg-blue-500 h-2 rounded-full animate-[width_2s_ease-in-out_infinite]" style="width: 50%"></div>
+            </div>
+            <p class="text-xs text-gray-400">Do not close this window</p>
+        </div>
+    </div>
+
+    <!-- Payment Required Modal -->
+    <div id="paymentRequiredModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+        <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 text-center shadow-2xl relative z-10 animate-[scaleIn_0.3s_ease-out]">
+            <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-lock text-3xl text-red-500"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Access Denied</h3>
+            <p class="text-gray-500 mb-8">You must complete the payment verification to access the receiving address setup page.</p>
+            <button onclick="document.getElementById('paymentRequiredModal').classList.add('hidden')" class="w-full bg-gray-900 text-white font-bold py-4 rounded-xl hover:bg-gray-800 transition-colors shadow-lg">
+                Complete Payment
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Set package type for next page
+        sessionStorage.setItem('selectedPackage', 'pro');
+
+        function copyAddress() {
+            const address = document.getElementById('walletAddress');
+            address.select();
+            document.execCommand('copy');
+            
+            // Visual feedback
+            const btn = event.currentTarget;
+            const originalIcon = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check text-green-400"></i>';
+            setTimeout(() => {
+                btn.innerHTML = originalIcon;
+            }, 2000);
+        }
+
+        // Button State Management
+        const txInput = document.getElementById('txId');
+        const submitBtn = document.querySelector('button[type="submit"]');
+        
+        txInput.addEventListener('input', function() {
+            if(this.value.trim().length > 0) {
+                submitBtn.style.opacity = '1';
+            } else {
+                submitBtn.style.opacity = '0.7';
+            }
+        });
+
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const txIdInput = document.getElementById('txId');
+            const txId = txIdInput.value.trim();
+            
+            // Professional Regex Validation for TRC20 TXID (64 Hex Characters)
+            const txPattern = /^[a-fA-F0-9]{64}$/;
+            
+            if(!txPattern.test(txId)) {
+                alert('⚠️ Security Verification Failed\n\nPlease enter a valid Transaction Hash (TXID).\nA valid TXID consists of exactly 64 hexadecimal characters (0-9, A-F).');
+                txIdInput.style.borderColor = '#ef4444'; // Red border for error
+                txIdInput.focus();
+                return;
+            }
+
+            txIdInput.style.borderColor = '#10B981'; // Green border for success
+            const modal = document.getElementById('loadingModal');
+            modal.classList.remove('hidden');
+
+            // Simulate verification
+            setTimeout(() => {
+                window.location.href = 'transaction-confirmation.html';
+            }, 3000);
+        });
+
+        // Check for payment required error
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('error') === 'payment_required') {
+                document.getElementById('paymentRequiredModal').classList.remove('hidden');
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>

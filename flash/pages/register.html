@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">USDT-FLASH - Register</title>
+    <link rel="icon" type="image/png" href="../icon/FMACK.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/flash.css">
+    <link rel="stylesheet" href="../css/hide-footer-except-home.css">
+    <script src="../js/auth.js"></script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo and Site Name -->
+                <a href="../index.html" class="flex items-center space-x-3">
+                    <img src="../icon/FMACK.png" alt="USDT-FLASH Logo" class="h-10 w-auto">
+                    <span class="text-2xl font-bold tracking-wider">USDT-FLASH</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                </nav>
+
+                <!-- Auth Buttons & User Menu -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <!-- Links for non-registered users -->
+                    <div class="auth-links">
+                        <a href="login.html" class="login-button hover:text-gray-300 transition duration-300">Login</a>
+                        <a href="register.html" class="register-button bg-white text-green-700 font-bold py-2 px-4 rounded-full hover:bg-gray-200 transition duration-300">Register</a>
+                    </div>
+                    <!-- Placeholder for registered user info -->
+                    <div class="user-menu hidden items-center">
+                        <div id="user-info" class="mr-4"></div>
+                        <button onclick="signOut()" class="logout-button hidden bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition duration-300">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <nav class="px-4 pt-2 pb-4 space-y-2">
+                    <hr class="border-gray-600 my-2">
+                    <!-- Mobile Auth Links -->
+                    <div class="auth-links-mobile">
+                         <a href="login.html" class="login-button block py-2 px-3 text-white hover:bg-green-700 rounded-md">Login</a>
+                         <a href="register.html" class="register-button block w-full text-left mt-2 py-2 px-3 bg-white text-green-700 font-bold rounded-md hover:bg-gray-200 transition duration-300">Register</a>
+                    </div>
+                     <!-- Mobile User Menu -->
+                    <div class="mobile-user-menu hidden">
+                         <div id="mobile-user-info" class="py-2 px-3 text-white"></div>
+                         <button onclick="signOut()" class="logout-button-mobile hidden w-full text-left mt-2 py-2 px-3 bg-red-600 text-white font-bold rounded-md hover:bg-red-700 transition duration-300">
+                             Logout
+                         </button>
+                    </div>
+                </nav>
+        </div>
+    </header>
+
+    <!-- Register Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-md">
+                <div class="text-center mb-8">
+                    <a href="../index.html" class="inline-block mb-4">
+                        <img src="../icon/FMACK.png" alt="USDT-FLASH Logo" class="h-16 w-auto">
+                    </a>
+                    <h2 class="text-3xl font-extrabold text-gray-900">Create Your Secure Account</h2>
+                    <p class="text-gray-600 mt-2">Join a trusted platform for secure and efficient transactions.</p>
+                </div>
+                
+                <form id="registerForm" onsubmit="handleRegistration(event)">
+                    <div class="space-y-6">
+                        <div>
+                            <label for="register-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-gray-400"></i>
+                                </div>
+                                <input type="text" id="register-name" name="name" class="form-input pl-10" placeholder="John Doe">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="register-email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-envelope text-gray-400"></i>
+                                </div>
+                                <input type="email" id="register-email" name="email" class="form-input pl-10" placeholder="you@example.com">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="register-password" class="block text-sm font-medium text-gray-700">Password</label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400"></i>
+                                </div>
+                                <input type="password" id="register-password" name="password" class="form-input pl-10" placeholder="••••••••">
+                            </div>
+                            <p class="mt-2 text-xs text-gray-500">Must be at least 8 characters and include uppercase, number, and special character.</p>
+                        </div>
+                        
+                        <div>
+                            <label for="register-confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-gray-400"></i>
+                                </div>
+                                <input type="password" id="register-confirm-password" name="confirm-password" class="form-input pl-10" placeholder="••••••••">
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="terms" name="terms" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="terms" class="font-medium text-gray-700">I agree to the <a href="../TERMS.md" target="_blank" class="text-blue-600 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>.</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition transform hover:scale-105">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-sm text-gray-600">
+                        Already have an account? 
+                        <a href="login.html" class="font-medium text-green-600 hover:text-green-500">
+                            Log In
+                        </a>
+                    </p>
+                </div>
+
+                <div class="mt-8 border-t border-gray-200 pt-6">
+                    <h3 class="text-lg font-medium text-gray-900 text-center">Why Join Us?</h3>
+                    <ul class="mt-4 space-y-4 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-shield-alt text-green-500 mr-3 mt-1"></i>
+                            <span><span class="font-semibold">Bank-Grade Security:</span> Your assets and data are protected with industry-leading security protocols.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-rocket text-green-500 mr-3 mt-1"></i>
+                            <span><span class="font-semibold">Instant Transactions:</span> Experience lightning-fast deposits and withdrawals.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-headset text-green-500 mr-3 mt-1"></i>
+                            <span><span class="font-semibold">24/7 Support:</span> Our dedicated team is always here to help you.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Error message -->
+                <div id="error-message" class="mt-4 text-center text-red-600 hidden"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="../js/app.js"></script>
+    <script>
+        function handleRegistration(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Redirect to index.html regardless of form data
+            window.location.href = "../index.html";
+        }
+    </script>
+</body>
+</html>
