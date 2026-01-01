@@ -1,0 +1,31 @@
+/*
+ * Header Color Standards / معايير ألوان الهيدر
+ * ------------------------------------------
+ * RGB: 66, 115, 108
+ * HEX: #42736C
+ */
+
+/* تطبيق اللون على الهيدر الرئيسي */
+header,
+header.fixed,
+.header-glass {
+    background: #42736C !important;
+    background-color: #42736C !important;
+    background-image: none !important; /* إزالة أي تدرجات لونية قديمة */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* تطبيق اللون على القائمة المنسدلة في الهاتف */
+#mobileMenu {
+    background: #42736C !important;
+    background-color: #42736C !important;
+    background-image: none !important;
+}
+
+/* تطبيق اللون على الفوتر */
+footer {
+    background: #42736C !important;
+    background-color: #42736C !important;
+    background-image: none !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
