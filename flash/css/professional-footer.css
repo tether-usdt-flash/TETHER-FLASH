@@ -1,0 +1,557 @@
+/* ============================================================================
+   PROFESSIONAL FOOTER SYSTEM - ENTERPRISE GRADE
+   ============================================================================
+   Advanced footer styling with modern design principles
+   Supports: Dark mode, animations, responsiveness, accessibility
+   ========================================================================== */
+
+:root {
+    --footer-primary: #0f1419;
+    --footer-secondary: #1a2e1a;
+    --footer-accent: #26a17b;
+    --footer-accent-dark: #1a8462;
+    --footer-text: #f0f0f0;
+    --footer-text-light: #a0a0a0;
+    --footer-border: rgba(38, 161, 123, 0.2);
+}
+
+/* ============================================================================
+   FOOTER MAIN CONTAINER
+   ========================================================================== */
+
+footer {
+    background: linear-gradient(135deg, var(--footer-primary) 0%, var(--footer-secondary) 25%, var(--footer-accent) 50%, var(--footer-accent-dark) 75%, #0e4b36 100%);
+    color: var(--footer-text);
+    border-top: 3px solid var(--footer-accent);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 -8px 32px rgba(38, 161, 123, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Footer decorative background animations */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.05), 
+        transparent);
+    animation: footerShineEffect 4s infinite;
+    pointer-events: none;
+}
+
+footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+}
+
+@keyframes footerShineEffect {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+/* ============================================================================
+   FOOTER CONTENT LAYOUT
+   ========================================================================== */
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 50px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================================================
+   FOOTER SECTIONS
+   ========================================================================== */
+
+.footer-section {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #34d399, var(--footer-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-section h3 i {
+    font-size: 20px;
+    -webkit-text-fill-color: var(--footer-accent);
+    color: var(--footer-accent);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================================================
+   FOOTER BRANDING SECTION
+   ========================================================================== */
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    animation: logoGlow 2s infinite;
+}
+
+.footer-logo img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.4);
+    animation: logoBounce 2s infinite;
+}
+
+@keyframes logoGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(38, 161, 123, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(52, 211, 153, 0.8);
+    }
+}
+
+@keyframes logoBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+.footer-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(240, 240, 240, 0.8);
+    max-width: 280px;
+}
+
+/* Certifications and badges */
+.footer-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.badge:hover {
+    background: rgba(52, 211, 153, 0.2);
+    border-color: var(--footer-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(38, 161, 123, 0.3);
+}
+
+.badge i {
+    color: var(--footer-accent);
+    font-size: 10px;
+}
+
+/* ============================================================================
+   FOOTER LINKS SECTIONS
+   ========================================================================== */
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(240, 240, 240, 0.85);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 8px 0;
+    width: fit-content;
+}
+
+.footer-link::before {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--footer-accent), #34d399);
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover::before {
+    width: 100%;
+}
+
+.footer-link:hover {
+    color: var(--footer-accent);
+    transform: translateX(4px);
+}
+
+.footer-link i {
+    color: var(--footer-accent);
+    min-width: 16px;
+}
+
+/* ============================================================================
+   FOOTER FEATURES/STATS
+   ========================================================================== */
+
+.footer-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.feature-item {
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.feature-item:hover {
+    background: rgba(52, 211, 153, 0.15);
+    border-color: var(--footer-accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(38, 161, 123, 0.2);
+}
+
+.feature-item i {
+    font-size: 24px;
+    color: var(--footer-accent);
+    margin-bottom: 8px;
+    animation: iconFloat 2s ease-in-out infinite;
+}
+
+.feature-item-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(52, 211, 153, 0.9);
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* ============================================================================
+   SOCIAL MEDIA SECTION
+   ========================================================================== */
+
+.social-media {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--footer-accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(52, 211, 153, 0.3);
+    font-size: 18px;
+}
+
+.social-icon:hover {
+    background: var(--footer-accent);
+    color: #000;
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 12px 24px rgba(38, 161, 123, 0.4);
+    border-color: var(--footer-accent);
+}
+
+/* ============================================================================
+   FOOTER BOTTOM / COPYRIGHT SECTION
+   ========================================================================== */
+
+.footer-bottom {
+    border-top: 1px solid var(--footer-border);
+    padding-top: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-bottom-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.copyright {
+    font-size: 14px;
+    color: var(--footer-text-light);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.copyright i {
+    color: var(--footer-accent);
+    animation: copyrightPulse 2s infinite;
+}
+
+@keyframes copyrightPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.footer-links-horizontal {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.footer-links-horizontal a {
+    font-size: 13px;
+    color: var(--footer-text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.footer-links-horizontal a:hover {
+    color: var(--footer-accent);
+    background: rgba(38, 161, 123, 0.1);
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .footer-container {
+        padding: 50px 30px;
+    }
+
+    .footer-grid {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 40px 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .footer-section h3 {
+        font-size: 16px;
+    }
+
+    .footer-features {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer-links-horizontal {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-container {
+        padding: 30px 16px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .footer-logo {
+        font-size: 24px;
+    }
+
+    .footer-section h3 {
+        font-size: 15px;
+        margin-bottom: 16px;
+    }
+
+    .footer-link {
+        font-size: 13px;
+    }
+
+    .footer-links-horizontal {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .social-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .feature-item {
+        padding: 12px;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+}
+
+/* ============================================================================
+   ANIMATION UTILITIES
+   ========================================================================== */
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================================================
+   ACCESSIBILITY
+   ========================================================================== */
+
+footer a:focus,
+footer button:focus {
+    outline: 2px solid var(--footer-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+footer [aria-label] {
+    position: relative;
+}
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ============================================================================
+   DARK MODE SUPPORT (IF NEEDED)
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+    footer {
+        background: linear-gradient(135deg, #0a0e13 0%, #0f1a14 25%, #1a5f4a 50%, #0f3d2a 75%, #081a0f 100%);
+    }
+}
+
+/* Print styles */
+@media print {
+    footer {
+        page-break-inside: avoid;
+    }
+
+    .social-icon,
+    .badge {
+        display: none;
+    }
+}

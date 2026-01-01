@@ -1,0 +1,127 @@
+
+:root {
+    --tether-green: #007A7A;
+    --tether-dark-green: #005A5A;
+    --tether-light-green: #F0FAF F;
+    --text-color: #1a202c;
+    --card-background: #ffffff;
+    --border-color: #e2e8f0;
+    --header-bg: #ffffff;
+    --footer-bg: #f8fafc;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: var(--tether-light-green);
+    color: var(--text-color);
+}
+
+.official-header {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.official-header .logo-text {
+    color: var(--tether-dark-green);
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.official-header .partner-text {
+    color: var(--tether-green);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.payment-card {
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.tether-highlight {
+    color: var(--tether-green);
+    font-weight: 700;
+}
+
+.tether-button {
+    background-color: var(--tether-green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 32px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tether-button:hover {
+    background-color: var(--tether-dark-green);
+}
+
+.security-section {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 32px;
+}
+
+.security-section h3 {
+    color: var(--tether-dark-green);
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+}
+
+.security-logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.security-logos .logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.security-logos svg {
+    height: 40px;
+    width: auto;
+    fill: #9ca3af;
+    transition: fill 0.3s ease;
+}
+
+.security-logos .logo-item:hover svg {
+    fill: #4b5563;
+}
+
+.security-logos p {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+}
+
+.official-footer {
+    background-color: var(--footer-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 32px 0;
+    margin-top: 64px;
+    color: #64748b;
+}
+
+.official-footer a {
+    color: #475569;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.official-footer a:hover {
+    color: var(--tether-green);
+}
